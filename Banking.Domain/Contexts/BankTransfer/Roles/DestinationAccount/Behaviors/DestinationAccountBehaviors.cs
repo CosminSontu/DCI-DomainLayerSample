@@ -8,10 +8,10 @@ namespace Banking.Domain.Contexts.BankTransfer.Behaviors
     {
         internal static Account Deposit(this DestinationAccount toAccount, decimal amount, Action<IAccount> persist)
         {
-            var newDestinationAccount = new Account(toAccount.Id,  toAccount.Balance + amount);
-            persist(newDestinationAccount);
-            Console.WriteLine($"Deposited {amount} to Account #{toAccount.Id}. New Balance = {toAccount.Balance}.");
-            return newDestinationAccount;
+            var newToAccount = new Account(toAccount.Id,  toAccount.Balance + amount);
+            persist(newToAccount);
+            Console.WriteLine($"Deposited {amount} to Account #{newToAccount.Id}. New Balance = {newToAccount.Balance}.");
+            return newToAccount;
         }
     }
 }

@@ -13,11 +13,11 @@ namespace Banking.Domain.Contexts.BankTransfer.Behaviors
                 throw new Exception("Insufficient funds");
             }
 
-            var newSourceAccount = new Account(fromAccount.Id, fromAccount.Balance - amount);
-            persist(newSourceAccount);
-            Console.WriteLine($"Withrew {amount} from Account #{fromAccount.Id}. New Balance = {fromAccount.Balance}.");
+            var newFromAccount = new Account(fromAccount.Id, fromAccount.Balance - amount);
+            persist(newFromAccount);
+            Console.WriteLine($"Withrew {amount} from Account #{newFromAccount.Id}. New Balance = {newFromAccount.Balance}.");
 
-            return newSourceAccount;
+            return newFromAccount;
         }
     }
 }
